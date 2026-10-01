@@ -1,0 +1,27 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // Mobile Navigation Toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Handle Form Submission
+  const bookingForm = document.getElementById('bookingForm');
+  const formMessage = document.getElementById('formMessage');
+
+  bookingForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const checkin = document.getElementById('checkin').value;
+    const checkout = document.getElementById('checkout').value;
+
+    // Display confirmation message
+    formMessage.textContent = `Thank you, ${name}! Your request for ${checkin} to ${checkout} has been received. We will contact you shortly.`;
+
+    // Clear form fields
+    bookingForm.reset();
+  });
+});
